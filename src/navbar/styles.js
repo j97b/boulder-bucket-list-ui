@@ -10,6 +10,10 @@ const styles = makeStyles((theme) => ({
       cursor: "pointer",
     },
   },
+  button: {
+    marginLeft: theme.spacing(3),
+    marginRight: theme.spacing(3),
+  },
 }));
 
 export default styles;
