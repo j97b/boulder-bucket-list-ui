@@ -12,9 +12,9 @@ const Navbar = () => {
             <AppBar>
                 <Toolbar>
                     <Typography variant='h6' className={classes.title}>Boulder Bucket List</Typography>
-                    <Button color='inherit'>Bucket List</Button>
-                    <Button color='inherit'>Map</Button>
-                    <Button color='inherit'>Add Boulder</Button>
+                    <Button color='inherit' className={classes.button}>Bucket List</Button>
+                    <Button color='inherit' className={classes.button}>Map</Button>
+                    <Button color='inherit' className={classes.button}>Add Boulder</Button>
                     <IconButton color='inherit'>
                         <AccountCircleRounded /> 
                     </IconButton>
