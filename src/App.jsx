@@ -1,11 +1,10 @@
 import React from 'react';
-import { Typography } from '@material-ui/core';
+
+import Navbar from './navbar/navbar';
 
 const App = () => {
     return (
-        <Typography>
-            Under Construction
-        </Typography>
+        <Navbar />
     );
 };
 
