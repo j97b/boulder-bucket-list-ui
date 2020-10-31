@@ -1,7 +1,8 @@
 import React from 'react';
 
-import { AppBar, Button, Toolbar, Typography } from '@material-ui/core';
+import { AppBar, Button, IconButton, Toolbar, Typography } from '@material-ui/core';
 import styles from './styles';
+import { AccountCircleRounded } from '@material-ui/icons';
 
 const Navbar = () => {
     const classes = styles();
@@ -14,6 +15,9 @@ const Navbar = () => {
                     <Button color='inherit'>Bucket List</Button>
                     <Button color='inherit'>Map</Button>
                     <Button color='inherit'>Add Boulder</Button>
+                    <IconButton color='inherit'>
+                        <AccountCircleRounded /> 
+                    </IconButton>
                 </Toolbar>
             </AppBar>
         </div>
