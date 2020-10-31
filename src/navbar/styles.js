@@ -3,11 +3,18 @@ const { makeStyles } = require("@material-ui/core");
 const styles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    "& div": {
+      flexGrow: 1,
+    },
   },
   title: {
-    flexGrow: 1,
+    width: "max-content",
     "&:hover": {
       cursor: "pointer",
+    },
+    "&:-webkit-any-link": {
+      color: "inherit",
+      textDecoration: "none",
     },
   },
   button: {

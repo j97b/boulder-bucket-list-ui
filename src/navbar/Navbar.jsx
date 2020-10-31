@@ -12,18 +12,12 @@ const Navbar = () => {
         <div className={classes.root}>
             <AppBar>
                 <Toolbar>
-                    <Link to='/'>
-                        <Typography variant='h6' className={classes.title}>Boulder Bucket List</Typography>
-                    </Link>
-                    <Link to='/bucketList'>
-                        <Button color='inherit' className={classes.button}>Bucket List</Button>
-                    </Link>
-                    <Link to='/map'>
-                        <Button color='inherit' className={classes.button}>Map</Button>
-                    </Link>
-                    <Link to='/addBoulder'>
-                    <Button color='inherit' className={classes.button}>Add Boulder</Button>
-                    </Link>
+                    <div>
+                        <Typography variant='h5' className={classes.title} component={Link} to='/'>Boulder Bucket List</Typography>
+                    </div>
+                    <Button color='inherit' className={classes.button} component={Link} to='/bucketList'>Bucket List</Button>
+                    <Button color='inherit' className={classes.button} component={Link} to='/map'>Map</Button>
+                    <Button color='inherit' className={classes.button} component={Link} to='/addBoulder'>Add Boulder</Button>
                     <IconButton color='inherit'>
                         <AccountCircleRounded /> 
                     </IconButton>
