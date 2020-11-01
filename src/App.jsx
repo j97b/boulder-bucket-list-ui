@@ -11,7 +11,7 @@ const App = () => {
     return (
         <Router>
             <Navbar />
-            <Route path='/home'>
+            <Route path='/' exact>
                 <Home />
             </Route>
             <Route path='/bucketList'>

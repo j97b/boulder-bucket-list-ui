@@ -13,7 +13,7 @@ const Navbar = () => {
             <AppBar position='static'>
                 <Toolbar>
                     <div>
-                        <Typography variant='h5' className={classes.title} component={Link} to='/home'>Boulder Bucket List</Typography>
+                        <Typography variant='h5' className={classes.title} component={Link} to='/'>Boulder Bucket List</Typography>
                     </div>
                     <Button color='inherit' className={classes.button} component={Link} to='/bucketList'>Bucket List</Button>
                     <Button color='inherit' className={classes.button} component={Link} to='/map'>Map</Button>
