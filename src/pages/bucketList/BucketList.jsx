@@ -4,6 +4,7 @@ import axios from "axios";
 
 import styles from "./styles";
 import BoulderCard from "../../components/boulderCard/BoulderCard";
+import grades from "../../utils/grades";
 
 const BucketList = () => {
   const [boulders, setBoulders] = useState([]);
@@ -11,9 +12,13 @@ const BucketList = () => {
 
   useEffect(() => {
     axios
-      .get("http://3.9.14.244:3000/boulders/")
+      .get("http://3.9.14.244:3000/boulders/userId/test")
       .then((res) => setBoulders(res.data));
   });
+
+  const deleteBoulder = (e, id) => {
+    axios.delete(`http://3.9.14.244:3000/boulders/boulderId/${id}`);
+  };
 
   return (
     <>
@@ -22,11 +27,16 @@ const BucketList = () => {
       </Typography>
       {boulders.map((boulder) => (
         <BoulderCard
+          key={boulder._id}
+          id={boulder._id}
           name={boulder.name}
           location={boulder.locationName}
-          grade={boulder.grade}
+          grade={grades[boulder.grade]}
           completed={boulder.completed}
-          completionDate={boulder.completionDate}
+          completionDate={new Date(
+            boulder.completionDate * 1000
+          ).toLocaleDateString("en-GB")}
+          deleteBoulder={deleteBoulder}
         />
       ))}
     </>

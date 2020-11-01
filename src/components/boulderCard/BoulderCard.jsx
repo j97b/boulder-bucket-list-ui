@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Card, IconButton, Typography } from "@material-ui/core";
+import { Box, Button, IconButton, Typography } from "@material-ui/core";
 
 import styles from "./styles";
 import { Create, Delete, MapOutlined, Room } from "@material-ui/icons";
@@ -7,10 +7,14 @@ import { Create, Delete, MapOutlined, Room } from "@material-ui/icons";
 const BoulderCard = (props) => {
   const classes = styles();
 
+  const handleDelete = (e) => {
+    props.deleteBoulder(e, props.id);
+  };
+
   return (
     <Box className={classes.root} alignItems="center">
       <Box className={classes.nameAndLocation} alignItems="center">
-        <MapOutlined color="rgb(70 70 70)" className={classes.map} />
+        <MapOutlined className={classes.map} />
         <Box>
           <Typography className={classes.name}>{props.name}</Typography>
           <Box className={classes.location}>
@@ -19,7 +23,7 @@ const BoulderCard = (props) => {
           </Box>
         </Box>
       </Box>
-      <Box>
+      <Box className={classes.grade}>
         <Typography variant="h4">Grade: {props.grade}</Typography>
       </Box>
       <Box className={classes.completed} alignItems="center">
@@ -35,12 +39,12 @@ const BoulderCard = (props) => {
         )}
       </Box>
       <Box className={classes.cardActions} alignItems="center">
-        <Typography>View Notes</Typography>
+        <Button>View Notes</Button>
         <IconButton>
           <Create />
         </IconButton>
-        <IconButton>
-          <Delete />
+        <IconButton onClick={handleDelete}>
+          <Delete className={classes.delete} />
         </IconButton>
       </Box>
     </Box>
