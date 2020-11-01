@@ -3,7 +3,7 @@ const { makeStyles } = require("@material-ui/core");
 const styles = makeStyles((theme) => ({
   root: {
     display: "flex",
-    minWidth: 600,
+    minWidth: 1200,
     margin: `${theme.spacing(3)} ${theme.spacing(5)}
     ${theme.spacing(3)} ${theme.spacing(5)}`,
     backgroundColor: "#C0C4C4",
