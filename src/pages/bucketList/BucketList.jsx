@@ -12,7 +12,13 @@ const BucketList = () => {
       <Typography variant="h2" className={classes.heading}>
         Bucket List
       </Typography>
-      <BoulderCard name="Test" location="Location" />
+      <BoulderCard
+        name="Girl On Our Mind"
+        location="Rocklands (South Africa)"
+        grade="6C+"
+        completed="true"
+        completionDate="23/02/2019"
+      />
     </>
   );
 };
