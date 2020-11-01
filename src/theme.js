@@ -11,6 +11,9 @@ const theme = createMuiTheme({
     h1: {
       fontFamily: '"Roboto", "Arial", sans-serif',
     },
+    h2: {
+      fontFamily: '"Roboto", "Arial", sans-serif',
+    },
   },
   spacing: (factor) => `${8 * factor}px`,
 });
