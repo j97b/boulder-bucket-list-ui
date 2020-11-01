@@ -1,9 +1,13 @@
 import React from 'react';
 import { Typography } from '@material-ui/core';
 
+import styles from './styles';
+
 const BucketList = () => {
+    const classes = styles();
+
     return (
-        <Typography>Bucket List Page Placeholder</Typography>
+        <Typography variant='h2' className={classes.heading}>Bucket List</Typography>
     );
 };
 
