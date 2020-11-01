@@ -12,6 +12,7 @@ const theme = createMuiTheme({
       fontFamily: '"Roboto", "Arial", sans-serif',
     },
   },
+  spacing: (factor) => `${8 * factor}px`,
 });
 
 export default theme;
