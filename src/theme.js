@@ -8,6 +8,9 @@ const theme = createMuiTheme({
   },
   typography: {
     fontFamily: '"Nanum Gothic", "Roboto", "Arial", sans-serif',
+    h1: {
+      fontFamily: '"Roboto", "Arial", sans-serif',
+    },
   },
 });
 
