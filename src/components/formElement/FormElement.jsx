@@ -6,10 +6,14 @@ import {
   Checkbox,
   Select,
   MenuItem,
+  InputAdornment,
+  IconButton,
 } from "@material-ui/core";
 
 import styles from "./styles.js";
 import grades from "../../utils/grades";
+import { DatePicker } from "@material-ui/pickers";
+import { Today } from "@material-ui/icons";
 
 const FormElement = (props) => {
   const classes = styles();
@@ -52,7 +56,26 @@ const FormElement = (props) => {
           />
         );
       case "date":
-        return <Typography>Date goes here</Typography>;
+        return (
+          <DatePicker
+            className={classes.date}
+            disableFuture
+            variant="inline"
+            inputVariant="outlined"
+            format="dd/MM/yyyy"
+            onChange={(value) => props.handleChange(value, props.name)}
+            value={props.value * 1000}
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton>
+                    <Today />
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
+          />
+        );
       default:
         return (
           <TextField

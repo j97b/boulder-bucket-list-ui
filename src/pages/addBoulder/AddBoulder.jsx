@@ -13,7 +13,7 @@ class AddBoulder extends React.Component {
       locationName: "",
       grade: "",
       completed: false,
-      completionDate: "",
+      completionDate: null,
     };
   }
 
@@ -28,6 +28,13 @@ class AddBoulder extends React.Component {
     this.setState({
       ...this.state,
       [e.target.name]: e.target.checked,
+    });
+  };
+
+  handleDateChange = (value, name) => {
+    this.setState({
+      ...this.state,
+      [name]: new Date(value).getTime() / 1000,
     });
   };
 
@@ -69,7 +76,7 @@ class AddBoulder extends React.Component {
             label="Completion Date"
             name="completionDate"
             value={this.state.completionDate}
-            handleChange={this.handleTextChange}
+            handleChange={this.handleDateChange}
             variant="date"
           />
         ) : null}

@@ -19,6 +19,15 @@ const styles = makeStyles((theme) => ({
     borderRadius: theme.shape.borderRadius,
     backgroundColor: "#F3F3F3",
   },
+  date: {
+    width: theme.spacing(20),
+    "& div": {
+      backgroundColor: "#F3F3F3",
+      "& button:hover": {
+        backgroundColor: "inherit",
+      },
+    },
+  },
 }));
 
 export default styles;
