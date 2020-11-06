@@ -11,13 +11,19 @@ const BucketList = () => {
   const classes = styles();
 
   useEffect(() => {
+    getBoulders();
+  }, []);
+
+  const getBoulders = () => {
     axios
       .get("http://3.9.14.244:3000/boulders/userId/test")
       .then((res) => setBoulders(res.data));
-  });
+  };
 
   const deleteBoulder = (id) => {
-    axios.delete(`http://3.9.14.244:3000/boulders/boulderId/${id}`);
+    axios
+      .delete(`http://3.9.14.244:3000/boulders/boulderId/${id}`)
+      .then(getBoulders());
   };
 
   return (
