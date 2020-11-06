@@ -16,7 +16,7 @@ const BucketList = () => {
       .then((res) => setBoulders(res.data));
   });
 
-  const deleteBoulder = (e, id) => {
+  const deleteBoulder = (id) => {
     axios.delete(`http://3.9.14.244:3000/boulders/boulderId/${id}`);
   };
 

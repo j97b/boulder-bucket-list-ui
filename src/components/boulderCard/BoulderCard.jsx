@@ -7,8 +7,8 @@ import { Create, Delete, MapOutlined, Room } from "@material-ui/icons";
 const BoulderCard = (props) => {
   const classes = styles();
 
-  const handleDelete = (e) => {
-    props.deleteBoulder(e, props.id);
+  const handleDelete = () => {
+    props.deleteBoulder(props.id);
   };
 
   return (
