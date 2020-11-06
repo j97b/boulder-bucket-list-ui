@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
-import { Typography, withStyles } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 
 import styles from "./styles";
 import FormElement from "../../components/formElement/FormElement";
