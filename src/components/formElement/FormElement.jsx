@@ -21,12 +21,14 @@ const FormElement = (props) => {
   const variantSwitch = (variant) => {
     switch (variant) {
       case "text":
+      default:
         return (
           <TextField
             name={props.name}
             variant="outlined"
             onChange={props.handleChange}
             value={props.value}
+            required
           />
         );
       case "dropdown":
@@ -35,12 +37,13 @@ const FormElement = (props) => {
             name={props.name}
             variant="outlined"
             onChange={props.handleChange}
-            value={grades[props.value]}
+            value={grades[props.value] || ""}
             className={classes.select}
+            required
           >
             {grades.map((value, key) => {
               return (
-                <MenuItem key={key} value={key}>
+                <MenuItem key={key} value={value}>
                   {value}
                 </MenuItem>
               );
@@ -59,12 +62,12 @@ const FormElement = (props) => {
         return (
           <DatePicker
             className={classes.date}
-            disableFuture
+            // disableFuture
             variant="inline"
             inputVariant="outlined"
             format="dd/MM/yyyy"
             onChange={(value) => props.handleChange(value, props.name)}
-            value={props.value === null ? null : props.value * 1000}
+            value={props.value * 1000}
             InputProps={{
               endAdornment: (
                 <InputAdornment position="end">
@@ -74,14 +77,6 @@ const FormElement = (props) => {
                 </InputAdornment>
               ),
             }}
-          />
-        );
-      default:
-        return (
-          <TextField
-            name={props.name}
-            variant="outlined"
-            onChange={props.handleChange}
           />
         );
     }
