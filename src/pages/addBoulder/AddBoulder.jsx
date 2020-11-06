@@ -1,92 +1,84 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Typography, withStyles } from "@material-ui/core";
 
 import styles from "./styles";
 import FormElement from "../../components/formElement/FormElement";
 
-class AddBoulder extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: "",
-      locationName: "",
-      grade: "",
-      completed: false,
-      completionDate: null,
-    };
-  }
+const AddBoulder = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    locationName: "",
+    grade: "",
+    completed: false,
+    completionDate: null,
+  });
 
-  handleTextChange = (e) => {
-    this.setState({
-      ...this.state,
+  const classes = styles();
+
+  const handleTextChange = (e) => {
+    setFormData({
+      ...formData,
       [e.target.name]: e.target.value,
     });
   };
 
-  handleToggle = (e) => {
-    this.setState({
-      ...this.state,
+  const handleToggle = (e) => {
+    setFormData({
+      ...formData,
       [e.target.name]: e.target.checked,
     });
   };
 
-  handleDateChange = (value, name) => {
-    this.setState({
-      ...this.state,
+  const handleDateChange = (value, name) => {
+    setFormData({
+      ...formData,
       [name]: new Date(value).getTime() / 1000,
     });
   };
 
-  render() {
-    const { classes } = this.props;
-    return (
-      <>
-        <Typography variant="h2" className={classes.heading}>
-          Add a Boulder
-        </Typography>
+  return (
+    <>
+      <Typography variant="h2" className={classes.heading}>
+        Add a Boulder
+      </Typography>
+      <FormElement
+        label="Boulder Name"
+        name="name"
+        value={formData.name}
+        handleChange={handleTextChange}
+      />
+      <FormElement
+        label="Boulder Location"
+        name="locationName"
+        value={formData.locationName}
+        handleChange={handleTextChange}
+      />
+      <FormElement
+        label="Boulder Grade"
+        name="grade"
+        value={formData.grade}
+        handleChange={handleTextChange}
+        variant="dropdown"
+      />
+      <FormElement
+        label="Completed"
+        name="completed"
+        value={formData.completed}
+        handleChange={handleToggle}
+        variant="toggle"
+      />
+      {formData.completed ? (
         <FormElement
-          label="Boulder Name"
-          name="name"
-          value={this.state.name}
-          handleChange={this.handleTextChange}
+          label="Completion Date"
+          name="completionDate"
+          value={formData.completionDate}
+          handleChange={handleDateChange}
+          variant="date"
         />
-        <FormElement
-          label="Boulder Location"
-          name="locationName"
-          value={this.state.locationName}
-          handleChange={this.handleTextChange}
-        />
-        <FormElement
-          label="Boulder Grade"
-          name="grade"
-          value={this.state.grade}
-          handleChange={this.handleTextChange}
-          variant="dropdown"
-        />
-        <FormElement
-          label="Completed"
-          name="completed"
-          value={this.state.completed}
-          handleChange={this.handleToggle}
-          variant="toggle"
-        />
-        {this.state.completed ? (
-          <FormElement
-            label="Completion Date"
-            name="completionDate"
-            value={this.state.completionDate}
-            handleChange={this.handleDateChange}
-            variant="date"
-          />
-        ) : null}
-      </>
-    );
-  }
-}
-
-AddBoulder.propTypes = {
-  classes: PropTypes.object.isRequired,
+      ) : null}
+    </>
+  );
 };
 
-export default withStyles(styles)(AddBoulder);
+export default AddBoulder;
