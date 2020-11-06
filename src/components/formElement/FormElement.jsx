@@ -64,7 +64,7 @@ const FormElement = (props) => {
             inputVariant="outlined"
             format="dd/MM/yyyy"
             onChange={(value) => props.handleChange(value, props.name)}
-            value={props.value * 1000}
+            value={props.value === null ? null : props.value * 1000}
             InputProps={{
               endAdornment: (
                 <InputAdornment position="end">
